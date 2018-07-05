@@ -1,0 +1,38 @@
+@import "header-dropdown";
+
+.header {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $header-background;
+  & .app-title{
+    text-align: center;
+  }
+  & .language{
+    margin: auto;
+  }
+}
+
+.logo {
+  & img {
+    display: flex;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .header{
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .header{
+    flex-wrap: nowrap;
+  }
+
+  .logo{
+    display: none;
+  }
+}
