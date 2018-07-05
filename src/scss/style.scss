@@ -1,6 +1,7 @@
 @import "icons";
 @import "variables";
 @import "header";
+@import "main";
 
 * {
   box-sizing: border-box;
@@ -13,7 +14,7 @@ html, body {
 }
 
 .container-fluid {
-  padding-right: 0px;
-  padding-left: 0px;
-  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+  max-width: 800px;
 }
