@@ -32,7 +32,10 @@ header {
         color: red;
         transition: 1s;
       }
+    }
   }
+  & .lang {
+    align-self: center;
   }
   & a {
     display: block;
@@ -40,12 +43,18 @@ header {
     text-align: center;
     color: black;
   }
-  .dropdown{
+  .dropdown {
     width: 200px;
+    & ul {
+      margin-bottom: 0;
+    }
+    & li {
+      width: 200px;
+    }
   }
 }
 
-.lang-hidden{
+.lang-hidden {
   display: none;
 }
 
