@@ -31,8 +31,6 @@ header {
       font-size: 20px;
       :hover {
         text-decoration: underline;
-        color: red;
-        transition: 1s;
       }
       & a {
         font-family: 'Encode Sans Condensed', sans-serif;
@@ -103,8 +101,9 @@ header {
         text-align: center;
         padding-left: 0;
         :hover {
-          background-color: red;
-          color: wheat;
+          background-color: gray;
+          text-decoration: none;
+          color: white;
         }
       }
     }
