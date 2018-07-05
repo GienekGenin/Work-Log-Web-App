@@ -162,6 +162,16 @@ main {
   }
 }
 
+//datetime elements
+//button with calendar icon
+.input-group-text {
+  background-color: pink;
+  &:hover {
+    background-color: paleturquoise;
+    transition: 0.5s;
+  }
+}
+
 @media only screen and (max-width: 585px) {
   main {
     padding-bottom: 30px;

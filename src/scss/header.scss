@@ -57,6 +57,10 @@ header {
     & li {
       width: 200px;
     }
+    &:hover {
+      background-color: lightgray;
+      border-color: gray;
+    }
   }
 }
 
