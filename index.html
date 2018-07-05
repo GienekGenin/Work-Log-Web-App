@@ -14,8 +14,9 @@
     <link rel="me" href="sms:+48792371282">
     <title>Work Log</title>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
     <link rel="stylesheet" href="./dist/styles.css">
     <link rel="icon" type="image/png"
           href="./src/assets/icons/hospital-icon.png"/>
@@ -23,23 +24,40 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="header">
-        <div class="logo">
-            <img src="./src/assets/img/hospital-logo.png" alt="logo">
+    <header>
+        <div class="menu-trigger">
+            <a href="#"><img src="./src/assets/img/hamburger.png" alt="" id="hamburger"></a>
         </div>
-        <div class="app-title">
-            <span>Work time registration</span>
+        <img src="./src/assets/img/hospital-logo.png" alt="logo" class="logo">
+        <div class="lang-hidden">
+            <select class="lang">
+                <option value="English" >English</option>
+                <option value="Deutsch">Deutsch</option>
+                <option value="Polski">Polski</option>
+            </select>
         </div>
-        <div class="log-in-language">
-            <div class="row language">
-                <select class="lang">
-                    <option value="English" >English</option>
-                    <option value="Deutsch">Deutsch</option>
-                    <option value="Polish">Polish</option>
-                </select>
+        <div class="menu-items-box">
+            <div class="menu-items">
+                <div class="welcome">
+                    <h1>Welcome back</h1>
+                </div>
+                <div class="">
+                    <select class="lang">
+                        <option value="English">English</option>
+                        <option value="Deutsch">Deutsch</option>
+                        <option value="Polski">Polski</option>
+                    </select>
+                </div>
             </div>
+            <ul class="nav-list-ul">
+                <li><a href="#">Work Time Registration</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Workspace</a></li>
+            </ul>
         </div>
-    </div>
+    </header>
     <div class="main">
         <div class="container">
             <div class='col-md-5'>

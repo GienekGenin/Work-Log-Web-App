@@ -1,38 +1,123 @@
 @import "header-dropdown";
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Condensed);
+@import "variables";
 
-.header {
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+header {
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: $header-background;
-  & .app-title{
-    text-align: center;
-  }
-  & .language{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 800px;
+  margin: auto;
+  // hospital logo
+  & .logo {
     margin: auto;
+    height: 110px;
   }
-}
-
-.logo {
-  & img {
+  & .nav-list-ul {
+    margin: 0;
     display: flex;
-    margin: auto;
+    justify-content: space-between;
+    margin-right: 50px;
+    & li {
+      align-self: center;
+      padding-left: 5px;
+      display: inline-block;
+      font-family: 'Encode Sans Condensed', sans-serif;
+      font-size: 20px;
+      :hover {
+        text-decoration: underline;
+        color: red;
+        transition: 1s;
+      }
+  }
+  }
+  & a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+  }
+  .dropdown{
+    width: 200px;
   }
 }
 
-@media only screen and (max-width: 575px) {
-  .header{
-    flex-wrap: nowrap;
-  }
+.lang-hidden{
+  display: none;
 }
 
-@media only screen and (max-width: 325px) {
-  .header{
-    flex-wrap: nowrap;
+// Hamburger menu trigger
+.menu-trigger {
+  display: none;
+}
+
+// Item container - needed for grid system
+.menu-items-box {
+  display: grid;
+  min-width: 550px;
+}
+
+// Social icons, and search box: input and button
+.menu-items {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+@media only screen and (max-width: 660px) {
+
+  header {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: auto;
+    & .logo {
+      display: flex;
+      align-self: center;
+      justify-self: center;
+    }
+    & .nav-list-ul {
+      display: none;
+      margin-right: 0;
+      & li {
+        display: block;
+        text-align: center;
+        padding-left: 0;
+        :hover {
+          background-color: red;
+          color: wheat;
+        }
+      }
+    }
   }
 
-  .logo{
+  //center hamburger box
+  .menu-trigger {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+
+  // ul will take place of 3 columns
+  .menu-items-box {
+    grid-column: 1 / span 3;
+  }
+
+  // hide unnecessary icons
+  .menu-items {
     display: none;
+  }
+
+  // hidden search icon
+  .lang-hidden {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+  }
+
+  // hamburger icon
+  #hamburger {
+    height: 35px;
   }
 }
