@@ -30,6 +30,7 @@ header {
       display: inline-block;
       font-size: 20px;
       :hover {
+        color: darkblue;
         text-decoration: underline;
       }
       & a {
@@ -105,7 +106,7 @@ header {
         text-align: center;
         padding-left: 0;
         :hover {
-          background-color: gray;
+          background-color: deepskyblue;
           text-decoration: none;
           color: white;
         }

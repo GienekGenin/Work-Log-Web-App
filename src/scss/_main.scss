@@ -16,7 +16,7 @@ main {
   background-color: white;
   width: 270px;
   min-width: 270px;
-  max-height: 390px;
+  max-height: 360px;
   box-shadow: 10px 10px 5px grey;
   & .employee-card {
     & .employee-photo-box {
@@ -257,7 +257,7 @@ form {
   }
 }
 
-@media only screen and (max-width: 316px) {
+@media only screen and (max-width: 351px) {
   .time-table {
     height: 375px;
     h3 {
