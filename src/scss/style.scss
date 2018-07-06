@@ -14,8 +14,17 @@ html, body {
 
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
+span {
+  font-family: Serif;
+}
+
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
   max-width: 800px;
+  min-width: 290px;
 }

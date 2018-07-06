@@ -138,11 +138,23 @@ header {
     justify-self: center;
     justify-content: space-around;
     width: 500px;
+    & h1{
+      margin-bottom: 0;
+    }
   }
 
   // hamburger icon
   #hamburger {
     height: 35px;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  .hidden-items {
+    width: auto;
+    & h1{
+      display: none;
+    }
   }
 }
 

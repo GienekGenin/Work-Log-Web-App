@@ -6,7 +6,7 @@ main {
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: #F3F3F3;
-  min-height: 420px;
+  min-height: 450px;
 }
 
 // just fucking rewrite this focking shit moron
@@ -16,7 +16,7 @@ main {
   background-color: white;
   width: 270px;
   min-width: 270px;
-  max-height: 360px;
+  max-height: 390px;
   box-shadow: 10px 10px 5px grey;
   & .employee-card {
     & .employee-photo-box {
@@ -152,6 +152,7 @@ form {
   button {
     position: relative;
     justify-content: center;
+    justify-self: center;
     align-self: center;
     background-color: pink;
     border: none;
@@ -243,11 +244,27 @@ form {
   max-width: 290px;
 }
 
-@media only screen and (max-width: 585px) {
+@media only screen and (max-width: 586px) {
   main {
-    //padding-bottom: 30px;
+    padding-bottom: 30px;
   }
   .employee-card-box {
     //min-height: 315px;
+  }
+
+  .time-table {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 316px) {
+  .time-table {
+    height: 375px;
+    h3 {
+      font-size: 25px;
+    }
+    button {
+      width: 60px;
+    }
   }
 }

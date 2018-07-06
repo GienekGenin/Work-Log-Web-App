@@ -61,81 +61,83 @@
             </ul>
         </div>
     </header>
-    <main>
-        <div class="time-table">
-            <h3>Select your working hours</h3>
-            <div class="today">
-                <span class="current-date"></span>
-                <span class="hms"></span>
+    <div>
+        <main>
+            <div class="time-table">
+                <h3>Select your working hours</h3>
+                <div class="today">
+                    <span class="current-date"></span>
+                    <span class="hms"></span>
+                </div>
+                <div class="form-container">
+                    <span>Select start of your working hours:</span>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
+                            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span>Select end of your working ours:</span>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
+                            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>Selected working hours:</h3>
+                <form action="#">
+                    <div>
+                        <span>Start: </span><span></span>
+                        <span>End:</span> <span> </span>
+                    </div>
+                    <button>Submit</button>
+                </form>
             </div>
-            <div class="form-container">
-                <span>Select start of your working hours:</span>
-                <div class="form-group">
-                    <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
-                        <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
+            <div class="employee-card-box">
+                <div class="employee-card">
+                    <div class="employee-photo-box"><img src="./src/assets/img/c.jpg" alt="profile"></div>
+                    <div class="name-position">
+                        <span>Dr. John Dorian</span>
+                        <span class="employee-position">Chief Surgeon</span>
                     </div>
-                </div>
-                <span>Select end of your working ours:</span>
-                <div class="form-group">
-                    <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
-                        <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    <div class="employee-data">
+                        <div class="employee-code-phone">
+                            <div class="employee-code">
+                                <span>Employee code</span>
+                                <span>3252952352535</span>
+                            </div>
+                            <div class="employee-phone">
+                                <span>Phone</span>
+                                <span>+38067976777</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <h3>Selected working hours:</h3>
-            <form action="#">
-                <div>
-                    <span>Start: </span><span></span>
-                    <span>End:</span> <span> </span>
-                </div>
-                <button>Submit</button>
-            </form>
-        </div>
-        <div class="employee-card-box">
-            <div class="employee-card">
-                <div class="employee-photo-box"><img src="./src/assets/img/c.jpg" alt="profile"></div>
-                <div class="name-position">
-                    <span>Dr. John Dorian</span>
-                    <span class="employee-position">Chief Surgeon</span>
-                </div>
-                <div class="employee-data">
-                    <div class="employee-code-phone">
-                        <div class="employee-code">
-                            <span>Employee code</span>
-                            <span>3252952352535</span>
+                        <div class="department-DOB">
+                            <div class="department">
+                                <span>Department</span>
+                                <span>Intensive surgery</span>
+                            </div>
+                            <div class="DOB">
+                                <span>D.O.B</span>
+                                <span>14.05.78</span>
+                            </div>
                         </div>
-                        <div class="employee-phone">
-                            <span>Phone</span>
-                            <span>+38067976777</span>
+                        <div class="mail">
+                            <span>Email: </span>
+                            <span>jdor78@gmail.com</span>
                         </div>
-                    </div>
-                    <div class="department-DOB">
-                        <div class="department">
-                            <span>Department</span>
-                            <span>Intensive surgery</span>
-                        </div>
-                        <div class="DOB">
-                            <span>D.O.B</span>
-                            <span>14.05.78</span>
-                        </div>
-                    </div>
-                    <div class="mail">
-                        <span>Email: </span>
-                        <span>jdor78@gmail.com</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <img src="./src/assets/img/hospital-logo.png" alt=""><span>Mayo Clinic Health System</span><span>tel.: +3954459490</span>
-    </footer>
+        </main>
+        <footer>
+            <img src="./src/assets/img/hospital-logo.png" alt=""><span>Mayo Clinic Health System</span><span>tel.: +3954459490</span>
+        </footer>
+    </div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
