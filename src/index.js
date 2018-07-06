@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import './scripts/dropdown';
-// import './scripts/datetimeselector';
 import './scripts/hamburger';
 import './scss/style.scss';
+import './scripts/popups';
 
 $(document).ready(function () {
     getDate();
