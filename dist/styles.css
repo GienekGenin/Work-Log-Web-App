@@ -243,6 +243,7 @@ main {
 
 .employee-card-box {
   opacity: 0;
+  margin-top: 15px;
   background-color: white;
   width: 270px;
   min-width: 270px;
@@ -399,9 +400,14 @@ form {
   padding: 10px;
   background-color: white;
   max-width: 320px;
-  height: 360px; }
+  height: 390px; }
   .time-table h3 {
     font-family: Serif; }
+  .time-table div:nth-child(6) {
+    display: flex;
+    justify-content: center; }
+    .time-table div:nth-child(6) button {
+      width: 100px; }
 
 .input-group-text {
   background-color: pink; }
@@ -422,9 +428,7 @@ form {
   .time-table {
     height: 375px; }
     .time-table h3 {
-      font-size: 25px; }
-    .time-table button {
-      width: 60px; } }
+      font-size: 25px; } }
 
 footer {
   display: flex;
@@ -455,7 +459,8 @@ footer {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0; }
+  bottom: 0;
+  height: 650px; }
 
 .popup-content {
   font-family: Serif;
@@ -508,6 +513,23 @@ footer {
   -webkit-animation: Gradient 10s ease infinite;
   -moz-animation: Gradient 10s ease infinite;
   animation: Gradient 10s ease infinite; }
+
+@media only screen and (max-width: 585px) {
+  .popup-overlay {
+    height: 1000px;
+    min-width: 290px; }
+  .popup-content {
+    width: 200px;
+    margin-left: -105px; }
+    .popup-content h1 {
+      font-size: 25px; }
+    .popup-content h3 {
+      font-size: 20px; } }
+
+@media only screen and (max-width: 190px) {
+  .popup-content {
+    width: 200px;
+    margin-left: -65px; } }
 
 * {
   box-sizing: border-box;

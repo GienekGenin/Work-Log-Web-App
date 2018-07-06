@@ -16,6 +16,7 @@
   right: 0;
   top: 0;
   bottom: 0;
+  height: 650px;
 }
 .popup-content {
   font-family: Serif;
@@ -69,4 +70,34 @@
   -webkit-animation: Gradient 10s ease infinite;
   -moz-animation: Gradient 10s ease infinite;
   animation: Gradient 10s ease infinite;
+}
+
+@media only screen and (max-width: 585px) {
+  .popup-overlay{
+    height: 1000px;
+    min-width: 290px;
+  }
+  .popup-content{
+    width: 200px;
+    margin-left: -105px;
+    h1{
+      font-size: 25px;
+    }
+    h3{
+      font-size: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 190px) {
+  .popup-content{
+    width: 200px;
+    margin-left: -65px;
+    //h1{
+    //  font-size: 20px;
+    //}
+    //h3{
+    //  font-size: 20px;
+    //}
+  }
 }
