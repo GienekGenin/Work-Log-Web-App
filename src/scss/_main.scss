@@ -104,6 +104,68 @@ main {
   }
 }
 
+.today {
+  margin-bottom: 10px;
+}
+
+.today, form {
+
+}
+
+form {
+  width: 100px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 50px;
+  & div {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 40px auto;
+  }
+  button:hover {
+    background: white;
+    box-shadow: 0 2px 10px 5px #97B1BF;
+    color: #000;
+    cursor: pointer;
+  }
+
+  button:after {
+    content: "";
+    background: pink;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 1s
+  }
+
+  button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  button {
+    position: relative;
+    justify-content: center;
+    align-self: center;
+    background-color: pink;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 90px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+  }
+}
+
 //card gradient start
 .employee-photo-box {
   width: 100%;
@@ -159,6 +221,7 @@ main {
   opacity: 0;
   padding: 10px;
   background-color: white;
+  max-width: 320px;
   //make it var
   height: 360px;
   & h3 {
@@ -174,6 +237,10 @@ main {
     background-color: paleturquoise;
     transition: 0.5s;
   }
+}
+
+.input-group.date {
+  max-width: 290px;
 }
 
 @media only screen and (max-width: 585px) {

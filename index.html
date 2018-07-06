@@ -63,32 +63,39 @@
     </header>
     <main>
         <div class="time-table">
-            <h3>Select your working ours</h3>
+            <h3>Select your working hours</h3>
             <div class="today">
-                space for time
+                <span class="current-date"></span>
+                <span class="hms"></span>
             </div>
-            <div class="container">
-                <div class='col-md-5'>
-                    <div class="form-group">
-                        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
-                            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
+            <div class="form-container">
+                <span>Select start of your working hours:</span>
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
+                        <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div>
                 </div>
-                <div class='col-md-5'>
-                    <div class="form-group">
-                        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
-                            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
+                <span>Select end of your working ours:</span>
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
+                        <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <h3>Selected working hours:</h3>
+            <form action="#">
+                <div>
+                    <span>Start: </span><span></span>
+                    <span>End:</span> <span> </span>
+                </div>
+                <button>Submit</button>
+            </form>
         </div>
         <div class="employee-card-box">
             <div class="employee-card">
@@ -144,13 +151,23 @@
         $('#datetimepicker8').datetimepicker({
             useCurrent: false
         });
+        // disable all dates befor today's time
+        $('#datetimepicker7').datetimepicker('minDate', moment());
+        $('#datetimepicker8').datetimepicker('minDate', moment());
+        // handling changes
         $("#datetimepicker7").on("change.datetimepicker", function (e) {
             $('#datetimepicker8').datetimepicker('minDate', e.date);
+            // change text on data selection
             console.log(first_date_element.value);
+            $('.form-container span')[0].innerText = `Start at:`;
+            $('.time-table form span')[1].innerText = `${first_date_element.value}`;
         });
         $("#datetimepicker8").on("change.datetimepicker", function (e) {
             $('#datetimepicker7').datetimepicker('maxDate', e.date);
+            // change text on data selection
             console.log(second_date_element.value);
+            $('.form-container span')[1].innerText = `End at:`;
+            $('.time-table form span')[3].innerText = `${second_date_element.value}`;
         });
     });
 </script>
