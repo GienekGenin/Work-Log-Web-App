@@ -65,7 +65,7 @@ header {
 }
 
 //hidden lang selector box
-.lang-hidden {
+.hidden-items {
   display: none;
 }
 
@@ -86,7 +86,7 @@ header {
   grid-template-columns: auto auto;
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 630px) {
 
   header {
     display: flex;
@@ -115,6 +115,7 @@ header {
 
   //center hamburger box
   .menu-trigger {
+    padding-left: 10px;
     display: flex;
     align-self: center;
     justify-content: center;
@@ -131,10 +132,12 @@ header {
   }
 
   // hidden search icon
-  .lang-hidden {
+  .hidden-items {
     display: flex;
     align-self: center;
     justify-self: center;
+    justify-content: space-around;
+    width: 500px;
   }
 
   // hamburger icon

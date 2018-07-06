@@ -1,14 +1,17 @@
 import $ from 'jquery';
 
 $(function () {
-    $('#datetimepicker7').datetimepicker();
-    $('#datetimepicker8').datetimepicker({
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker({
         useCurrent: false
     });
-    $("#datetimepicker7").on("change.datetimepicker", function (e) {
-        $('#datetimepicker8').datetimepicker('minDate', e.date);
+    $("#datetimepicker1").on("change.datetimepicker", function (e) {
+        $('#datetimepicker2').datetimepicker('minDate', e.date);
     });
-    $("#datetimepicker8").on("change.datetimepicker", function (e) {
-        $('#datetimepicker7').datetimepicker('maxDate', e.date);
+    $("#datetimepicker1").on("change.datetimepicker", function (e) {
+        $('#datetimepicker2').datetimepicker('maxDate', e.date);
     });
+
+    let a = $('input.datetimepicker-input').val();
+    console.log(a);
 });
