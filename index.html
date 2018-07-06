@@ -94,8 +94,10 @@
                     <span>Start: </span><span></span>
                     <span>End:</span> <span> </span>
                 </div>
-                <button class="btn open-popup" data-id="popup_default" type="submit">Submit</button>
             </form>
+            <div>
+                <button class="btn open-popup" data-id="popup_default" type="submit">Submit</button>
+            </div>
         </div>
         <div class="employee-card-box">
             <div class="employee-card">
@@ -167,7 +169,6 @@
         $("#datetimepicker7").on("change.datetimepicker", function (e) {
             $('#datetimepicker8').datetimepicker('minDate', e.date);
             // change text on data selection
-            console.log(first_date_element.value);
             $('.form-container span')[0].innerText = `Start at:`;
             $('.time-table form span')[1].innerText = `${first_date_element.value}`;
         });
@@ -176,23 +177,30 @@
             // change text on data selection
             console.log(second_date_element.value);
             $('.form-container span')[1].innerText = `End at:`;
+            $('.time-table form span')[1].innerText = `${first_date_element.value}`;
             $('.time-table form span')[3].innerText = `${second_date_element.value}`;
         });
     });
 
     // handling submit event button
     $(':input[type="submit"]').on('click', function () {
-        if(second_date_element.value == ''){
+        if (first_date_element.value === '' || second_date_element.value === '') {
+            //alert success
             $(".popup-content h1").text("You didn't chose your end time");
             $(".popup-content h3").text("Please select time correctly");
         } else {
+            //alert failure
             $(".popup-content h1").text("Your working hours are successfully registered");
             $(".popup-content h3").text("Have a nice day");
+            $('.form-container span')[0].innerText = `Select start of your working hours:`;
+            $('.form-container span')[1].innerText = `Select end of your working hours:`;
+            $('.time-table form span')[1].innerText = '';
+            $('.time-table form span')[3].innerText = '';
+            // clear fields
+            first_date_element.value = '';
+            second_date_element.value = '';
         }
     });
-</script>
-<script>
-
 </script>
 </body>
 </html>
