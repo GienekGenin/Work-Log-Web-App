@@ -94,8 +94,10 @@
                     <span>Start: </span><span></span>
                     <span>End:</span> <span> </span>
                 </div>
-                <button>Submit</button>
             </form>
+            <div>
+                <button class="btn" data-id="popup_default" type="submit">Submit</button>
+            </div>
         </div>
         <div class="employee-card-box">
             <div class="employee-card">
@@ -137,6 +139,15 @@
         <img src="./src/assets/img/hospital-logo.png" alt=""><span>Mayo Clinic Health System</span><span>tel.: +3954459490</span>
     </footer>
 </div>
+<!--popup  body-->
+<div id="popup_default" class="popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+        <a href="#" class="close-popup" data-id="popup_default">&times;</a>
+        <h1></h1>
+        <h3></h3>
+    </div>
+</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript"
@@ -158,18 +169,69 @@
         $("#datetimepicker7").on("change.datetimepicker", function (e) {
             $('#datetimepicker8').datetimepicker('minDate', e.date);
             // change text on data selection
-            console.log(first_date_element.value);
             $('.form-container span')[0].innerText = `Start at:`;
             $('.time-table form span')[1].innerText = `${first_date_element.value}`;
         });
         $("#datetimepicker8").on("change.datetimepicker", function (e) {
             $('#datetimepicker7').datetimepicker('maxDate', e.date);
             // change text on data selection
-            console.log(second_date_element.value);
             $('.form-container span')[1].innerText = `End at:`;
+            $('.time-table form span')[1].innerText = `${first_date_element.value}`;
             $('.time-table form span')[3].innerText = `${second_date_element.value}`;
         });
     });
+
+    // handling submit event button
+    $(':input[type="submit"]').on('click', function () {
+        if (first_date_element.value === '' || second_date_element.value === '') {
+            //alert failure
+            $(".popup-content h1").text("You didn't chose your end time");
+            $(".popup-content h3").text("Please select time correctly");
+            $('#popup_default').openPopup();
+            $('.time-table form span')[3].innerText = '';
+            second_date_element.value = '';
+        } else {
+            let result = checkHours(first_date_element.value, second_date_element.value);
+            if (!result) {
+                $(".popup-content h1").text("You didn't chose time correctly");
+                $(".popup-content h3").text("Please select less than 13h");
+                $('#popup_default').openPopup();
+                resetDates();
+            } else {
+                resetDates();
+                //alert success
+                $(".popup-content h1").text("Your working hours are successfully registered");
+                $(".popup-content h3").text("Have a nice day");
+                $('#popup_default').openPopup();
+                $('.form-container span')[0].innerText = `Select start of your working hours:`;
+                $('.form-container span')[1].innerText = `Select end of your working hours:`;
+                // $('#popup_default').openPopup();
+                $('.time-table form span')[1].innerText = '';
+                $('.time-table form span')[3].innerText = '';
+                // clear fields
+                first_date_element.value = '';
+                second_date_element.value = '';
+            }
+        }
+    });
+    function resetDates() {
+        //reset max
+        $('#datetimepicker7').datetimepicker('maxDate', false);
+        $('#datetimepicker8').datetimepicker('maxDate', false);
+        // return min as default
+        $('#datetimepicker7').datetimepicker('minDate', moment());
+        $('#datetimepicker8').datetimepicker('minDate', moment());
+    }
+
+    function checkHours(_date_1, _date_2) {
+        let start = moment(_date_1, "MM/DD/YYYY h:mm a");
+        let end = moment(_date_2, "MM/DD/YYYY h:mm a");
+        let diff = moment.duration(start.diff(end)).asHours();
+        console.log(`Difference is: ${diff}`);
+        if (diff < -12) {
+            return false;
+        } else return true;
+    }
 </script>
 </body>
 </html>
