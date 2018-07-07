@@ -65,8 +65,8 @@
         <div class="time-table">
             <h3>Select your working hours</h3>
             <div class="today">
-                <span class="current-date"></span>
-                <span class="hms"></span>
+                <span></span>
+                <span></span>
             </div>
             <div class="form-container">
                 <span>Select start of your working hours:</span>
@@ -100,37 +100,35 @@
             </div>
         </div>
         <div class="employee-card-box">
-            <div class="employee-card">
-                <div class="employee-photo-box"><img src="./src/assets/img/c.jpg" alt="profile"></div>
-                <div class="name-position">
-                    <span>Dr. John Dorian</span>
-                    <span class="employee-position">Chief Surgeon</span>
+            <div class="employee-photo-box"><img src="./src/assets/img/c.jpg" alt="profile"></div>
+            <div class="name-position">
+                <span>Dr. John Dorian</span>
+                <span class="employee-position">Chief Surgeon</span>
+            </div>
+            <div class="employee-data">
+                <div>
+                    <div class="employee-code">
+                        <span>Employee code</span>
+                        <span>3252952352535</span>
+                    </div>
+                    <div class="employee-phone">
+                        <span>Phone</span>
+                        <span>+38067976777</span>
+                    </div>
                 </div>
-                <div class="employee-data">
-                    <div class="employee-code-phone">
-                        <div class="employee-code">
-                            <span>Employee code</span>
-                            <span>3252952352535</span>
-                        </div>
-                        <div class="employee-phone">
-                            <span>Phone</span>
-                            <span>+38067976777</span>
-                        </div>
+                <div class="department-DOB">
+                    <div>
+                        <span>Department</span>
+                        <span>Intensive surgery</span>
                     </div>
-                    <div class="department-DOB">
-                        <div class="department">
-                            <span>Department</span>
-                            <span>Intensive surgery</span>
-                        </div>
-                        <div class="DOB">
-                            <span>D.O.B</span>
-                            <span>14.05.78</span>
-                        </div>
+                    <div>
+                        <span>D.O.B</span>
+                        <span>14.05.78</span>
                     </div>
-                    <div class="mail">
-                        <span>Email: </span>
-                        <span>jdor78@gmail.com</span>
-                    </div>
+                </div>
+                <div class="mail">
+                    <span>Email: </span>
+                    <span>jdor78@gmail.com</span>
                 </div>
             </div>
         </div>
@@ -190,11 +188,12 @@
             $('#popup_default').openPopup();
             $('.time-table form span')[3].innerText = '';
             second_date_element.value = '';
+            resetDates();
         } else {
             let result = checkHours(first_date_element.value, second_date_element.value);
             if (!result) {
                 $(".popup-content h1").text("You didn't chose time correctly");
-                $(".popup-content h3").text("Please select less than 13h");
+                $(".popup-content h3").text("Please select less than 12h");
                 $('#popup_default').openPopup();
                 resetDates();
             } else {
@@ -214,6 +213,7 @@
             }
         }
     });
+
     function resetDates() {
         //reset max
         $('#datetimepicker7').datetimepicker('maxDate', false);
@@ -230,7 +230,9 @@
         console.log(`Difference is: ${diff}`);
         if (diff < -12) {
             return false;
-        } else return true;
+        } else if (diff >= -12) {
+            return true;
+        }
     }
 </script>
 </body>

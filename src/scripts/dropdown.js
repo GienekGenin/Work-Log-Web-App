@@ -46,6 +46,7 @@ $(document).on('click', '.dropdown .option', function (event) {
     $(this).closest('.dropdown').find('.current').text(text);
     $(this).closest('.dropdown').prev('select').val($(this).data('value')).trigger('change');
     // Change language on select
+    // Really wanted to do this, but German, god damn words r to long :D
     console.log(event.target.innerHTML);
     if (event.target.innerHTML === 'Polish') {
         $(".app-title span").text("Registracja godzin pracy");
