@@ -68,7 +68,7 @@ main {
   }
   & .department-DOB {
     font-size: 18px;
-    & div:last-child{
+    & div:last-child {
       display: grid;
     }
     & span:first-child {
@@ -209,7 +209,7 @@ form {
 
 //time table
 .time-table {
-  & .today{
+  & .today {
     margin-bottom: 10px;
   }
   opacity: 0;
@@ -242,6 +242,11 @@ form {
     background-color: paleturquoise;
     transition: 0.5s;
   }
+}
+
+//selected hours
+#selected-hours {
+
 }
 
 @media only screen and (max-width: 586px) {

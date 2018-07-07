@@ -133,6 +133,9 @@
             </div>
         </div>
     </main>
+    <div id="selected-hours" onclick="remove(event)">
+        <h3>Click to remove</h3>
+    </div>
     <footer>
         <img src="./src/assets/img/hospital-logo.png" alt=""><span>Mayo Clinic Health System</span><span>tel.: +3954459490</span>
     </footer>
@@ -202,6 +205,7 @@
                 $(".popup-content h1").text("Your working hours are successfully registered");
                 $(".popup-content h3").text("Have a nice day");
                 $('#popup_default').openPopup();
+                createHoursCards(first_date_element.value,second_date_element.value);
                 $('.form-container span')[0].innerText = `Select start of your working hours:`;
                 $('.form-container span')[1].innerText = `Select end of your working hours:`;
                 // $('#popup_default').openPopup();
@@ -233,6 +237,31 @@
         } else if (diff >= -12 && diff <= -0.30) {
             return true;
         }
+    }
+    let counter = 0;
+    function createHoursCards(date_1, date_2) {
+        let hoursCard = document.getElementById('selected-hours');
+
+        let selected_time_div = document.createElement('div');
+        selected_time_div.setAttribute('id', `selected-time-${++counter}`);
+        // selected_time_div.setAttribute('onclick','remove(event)');
+
+        let start_time = document.createElement('span');
+        let start_time_text = document.createTextNode(date_1);
+        start_time.appendChild(start_time_text);
+
+        let end_time = document.createElement('span');
+        let end_time_text = document.createTextNode(date_2);
+        end_time.appendChild(end_time_text);
+
+        selected_time_div.appendChild(start_time);
+        selected_time_div.appendChild(end_time);
+
+        hoursCard.appendChild(selected_time_div);
+    }
+    function remove(event){
+        console.log('deeee', event.path[2],event.path[1]);
+        event.path[2].removeChild(event.path[1]);
     }
 </script>
 </body>
