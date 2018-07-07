@@ -68,7 +68,7 @@ main {
   }
   & .department-DOB {
     font-size: 18px;
-    & div:last-child{
+    & div:last-child {
       display: grid;
     }
     & span:first-child {
@@ -209,7 +209,7 @@ form {
 
 //time table
 .time-table {
-  & .today{
+  & .today {
     margin-bottom: 10px;
   }
   opacity: 0;
@@ -242,6 +242,31 @@ form {
     background-color: paleturquoise;
     transition: 0.5s;
   }
+}
+
+//selected hours
+#selected-hours {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  h5 {
+    width: 100%;
+  }
+}
+
+.selected-time {
+  display: grid;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  width: 160px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.selected-time:hover {
+  background-color: lightgray;
 }
 
 @media only screen and (max-width: 586px) {

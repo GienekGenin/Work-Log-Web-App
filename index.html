@@ -133,6 +133,9 @@
             </div>
         </div>
     </main>
+    <div id="selected-hours" onclick="remove(event)">
+        <h5>Click to remove selected working hours</h5>
+    </div>
     <footer>
         <img src="./src/assets/img/hospital-logo.png" alt=""><span>Mayo Clinic Health System</span><span>tel.: +3954459490</span>
     </footer>
@@ -160,12 +163,17 @@
         $('#datetimepicker8').datetimepicker({
             useCurrent: false
         });
+        resetDates();
         // disable all dates befor today's time
         $('#datetimepicker7').datetimepicker('minDate', moment());
         $('#datetimepicker8').datetimepicker('minDate', moment());
+        // can select only 1 week in advance
         // handling changes
         $("#datetimepicker7").on("change.datetimepicker", function (e) {
             $('#datetimepicker8').datetimepicker('minDate', e.date);
+            // cant select more than 24 hours
+            let maxDate = moment(first_date_element.value, "MM/DD/YYYY").add(2, 'days');
+            $('#datetimepicker8').datetimepicker('maxDate', maxDate);
             // change text on data selection
             $('.form-container span')[0].innerText = `Start at:`;
             $('.time-table form span')[1].innerText = `${first_date_element.value}`;
@@ -202,6 +210,7 @@
                 $(".popup-content h1").text("Your working hours are successfully registered");
                 $(".popup-content h3").text("Have a nice day");
                 $('#popup_default').openPopup();
+                createHoursCards(first_date_element.value, second_date_element.value);
                 $('.form-container span')[0].innerText = `Select start of your working hours:`;
                 $('.form-container span')[1].innerText = `Select end of your working hours:`;
                 // $('#popup_default').openPopup();
@@ -216,8 +225,9 @@
 
     function resetDates() {
         //reset max
-        $('#datetimepicker7').datetimepicker('maxDate', false);
-        $('#datetimepicker8').datetimepicker('maxDate', false);
+        let maxDate = moment(moment(), "MM/DD/YYYY").add(7, 'days');
+        $('#datetimepicker7').datetimepicker('maxDate', maxDate);
+        $('#datetimepicker8').datetimepicker('maxDate', maxDate);
         // return min as default
         $('#datetimepicker7').datetimepicker('minDate', moment());
         $('#datetimepicker8').datetimepicker('minDate', moment());
@@ -233,6 +243,38 @@
         } else if (diff >= -12 && diff <= -0.30) {
             return true;
         }
+    }
+
+    let counter = 0;
+
+    function createHoursCards(date_1, date_2) {
+        document.getElementById('selected-hours').setAttribute('style', 'display : flex');
+        let hoursCard = document.getElementById('selected-hours');
+
+        let selected_time_div = document.createElement('div');
+        selected_time_div.setAttribute('id', `selected-time-${++counter}`);
+        selected_time_div.setAttribute('class', `selected-time`);
+
+        let start_time = document.createElement('span');
+        let start_time_text = document.createTextNode(date_1);
+        start_time.appendChild(start_time_text);
+
+        let end_time = document.createElement('span');
+        let end_time_text = document.createTextNode(date_2);
+        end_time.appendChild(end_time_text);
+
+        selected_time_div.appendChild(start_time);
+        selected_time_div.appendChild(end_time);
+
+        hoursCard.appendChild(selected_time_div);
+    }
+
+    // я знаю, это не по православному такой код писать
+    function remove(event) {
+        if (event.path[1].getAttribute('id') === 'selected-hours') {
+            return;
+        } else
+            event.path[2].removeChild(event.path[1]);
     }
 </script>
 </body>
