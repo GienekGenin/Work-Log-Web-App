@@ -193,7 +193,7 @@
             let result = checkHours(first_date_element.value, second_date_element.value);
             if (!result) {
                 $(".popup-content h1").text("You didn't chose time correctly");
-                $(".popup-content h3").text("Please select less than 12h");
+                $(".popup-content h3").text("Please select less than 12h and more than 1/2h");
                 $('#popup_default').openPopup();
                 resetDates();
             } else {
@@ -228,9 +228,9 @@
         let end = moment(_date_2, "MM/DD/YYYY h:mm a");
         let diff = moment.duration(start.diff(end)).asHours();
         console.log(`Difference is: ${diff}`);
-        if (diff < -12) {
+        if (diff < -12 || diff > -0.30) {
             return false;
-        } else if (diff >= -12) {
+        } else if (diff >= -12 && diff <= -0.30) {
             return true;
         }
     }
