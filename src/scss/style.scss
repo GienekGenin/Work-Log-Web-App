@@ -1,6 +1,5 @@
-@import "icons";
 @import "variables";
-@import "header";
+@import "header/header";
 @import "main";
 @import "footer";
 @import "popusp";
@@ -9,10 +8,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html, body {
-
 }
 
 h1 {
